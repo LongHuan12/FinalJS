@@ -6,15 +6,11 @@
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-    <!-- Title  -->
     <title>Final Project - Furniture Ecommerce | Shop</title>
 
-    <!-- Favicon  -->
     <link rel="icon" href="img/core-img/favicon.ico">
 
-    <!-- Core Style CSS -->
     <link rel="stylesheet" href="css/core-style.css">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -22,25 +18,21 @@
 <body>
     <%- include('../partials/search'); %>
 
-        <!-- ##### Main Content Wrapper Start ##### -->
         <div class="main-content-wrapper d-flex clearfix">
 
             <%- include('../partials/headerTemp'); %>
 
                 <div class="shop_sidebar_area">
 
-                    <!-- ##### Single Widget ##### -->
                     <div class="widget catagory mb-50">
-                        <!-- Widget Title -->
                         <h6 class="widget-title mb-30">Catagories</h6>
 
-                        <!--  Catagories  -->
                         <div class="catagories-menu">
                             <ul>
                                 <li><a href="/shop">All</a></li>
                                 <%var i=1; proT.forEach(proT=> { if (i==proT.ID){%>
 
-                                    <li class="active"><a href="/shop?type=<%=proT.ID%>">
+                                    <li class="<%=(proT.ID==type?'active':'')%>"><a href="/shop?type=<%=proT.ID%>">
                                             <%=proT.Name%>
                                         </a></li>
                                     <% }else{ %>
@@ -88,7 +80,6 @@
 
                         <div class="row">
                             <div class="col-12">
-                                <!-- Pagination -->
                                 <nav aria-label="navigation">
                                     <ul class="pagination justify-content-end mt-50" id="pagingData">
                                     </ul>
@@ -98,11 +89,10 @@
                     </div>
                 </div>
         </div>
-        <!-- ##### Main Content Wrapper End ##### -->
 
         <%- include('../partials/footerTemp'); %>
             <script id="my-paging-template" type="x-tmpl-mustache">
-        <li class="page-item active"><button class="page-link" value="{{page}}" onclick="getProductByPage(this)">{{page}}</button></li>
+        <li class="page-item {{PageFocus}}"><button class="page-link" value="{{page}}" onclick="getProductByPage(this)">{{page}}</button></li>
     </script>
             <script id="my-template" type="x-tmpl-mustache">
         <div class="col-12 col-sm-6 col-md-12 col-xl-6">
@@ -140,25 +130,23 @@
             </div>
         </div>
       </script>
-            <!-- ##### jQuery (Necessary for All JavaScript Plugins) ##### -->
             <script src="js/jquery/jquery-2.2.4.min.js"></script>
-            <!-- Popper js -->
             <script src="js/popper.min.js"></script>
-            <!-- Bootstrap js -->
             <script src="js/bootstrap.min.js"></script>
-            <!-- Plugins js -->
             <script src="js/plugins.js"></script>
-            <!-- Active js -->
             <script src="js/active.js"></script>
 
-            <!-- Mustache js -->
             <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"></script>
 
             <script src="js/script.js"></script>
             <script>
                 $(document).ready(function () {
 
-                    BindData()
+                    BindData();
+                    if($('div.catagories-menu li.active').length==0){
+                        $('div.catagories-menu li:first').addClass('active');
+                    }
+                    $('nav.amado-nav li.mShop').addClass('active');
                 });
             </script>
 

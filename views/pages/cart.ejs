@@ -6,15 +6,11 @@
    <meta name="description" content="">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-   <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-   <!-- Title  -->
    <title>Amado - Furniture Ecommerce Template | Cart</title>
 
-   <!-- Favicon  -->
    <link rel="icon" href="img/core-img/favicon.ico">
 
-   <!-- Core Style CSS -->
    <link rel="stylesheet" href="css/core-style.css">
    <link rel="stylesheet" href="style.css">
 
@@ -23,7 +19,6 @@
 <body>
    <%- include('../partials/search'); %>
 
-      <!-- ##### Main Content Wrapper Start ##### -->
       <div class="main-content-wrapper d-flex clearfix">
 
          <%- include('../partials/headerTemp'); %>
@@ -56,9 +51,9 @@
                         <div class="cart-summary">
                            <h5>Cart Total</h5>
                            <ul class="summary-table">
-                              <li><span>subtotal:</span> <span id="spanSubTotal">$140.00</span></li>
+                              <li><span>subtotal:</span> <span id="spanSubTotal"></span></li>
                               <li><span>delivery:</span> <span>Free</span></li>
-                              <li><span>total:</span> <span id="spanTotal">$140.00</span></li>
+                              <li><span>total:</span> <span id="spanTotal"></span></li>
                            </ul>
                            <div class="cart-btn mt-100">
                               <button class="btn amado-btn w-100 btnCheckOut">Checkout</button>
@@ -69,6 +64,20 @@
                </div>
             </div>
       </div>
+      <div class="alerts" >
+      <div class="alert alert-success animated" id="noti_Success" style="display: none;">
+         <div class="icon pull-left">
+           <i class="fa fa-check fa-2x"></i>
+         </div>
+         <div class="copy">
+           <h4>Success</h4>
+           <p>Thanks for your order!</p>
+         </div>
+         <a class="noti_close">
+           Close
+         </a>
+       </div>
+      </div>
       <div id="myModal" class="modal fade" tabindex="-1">
          <div class="modal-dialog">
              <div class="modal-content">
@@ -77,15 +86,34 @@
                      <button type="button" class="close" data-dismiss="modal">&times;</button>
                  </div>
                  <div class="modal-body">
-                     <p>Successful!</p>
+                     <div class="form-group">
+                         <label>Your Name:</label>
+                         <input type="text" class="form-control" id="cusName" name="cusName">
+                     </div>
+                     <div class="form-group">
+                         <label">Address:</label>
+                         <textarea class="form-control" id="cusAddress" name="cusAddress"></textarea>
+                     </div>
+                     <div class="form-group">
+                        <label">Total:</label>
+                        <input type="text" class="form-control" id="mTotalPrice" name="mTotalPrice" disabled/>
+                    </div>
+                     <label for="usr">Payment Method:</label>
+                     <div class="form-group">
+                         <select name="payMethod" id="payMethod">
+                                 <option value="1">Visa Debit</option>
+                                 <option value="2">Momo</option>
+                                 <option value="3">Paypal</option>
+                         </select>
+                     </div>
                  </div>
                  <div class="modal-footer">
-                     <button type="button" class="btn btn-secondary" data-dismiss="modal">OK</button>
+                     <button type="button" class="btn btn-primary" onclick="checkOut()">OK</button>
+                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                  </div>
              </div>
          </div>
      </div>
-      <!-- ##### Main Content Wrapper End ##### -->
 
 
 
@@ -112,17 +140,11 @@
          </td>
      </tr>
     </script>
-         <!-- ##### jQuery (Necessary for All JavaScript Plugins) ##### -->
          <script src="js/jquery/jquery-2.2.4.min.js"></script>
-         <!-- Popper js -->
          <script src="js/popper.min.js"></script>
-         <!-- Bootstrap js -->
          <script src="js/bootstrap.min.js"></script>
-         <!-- Plugins js -->
          <script src="js/plugins.js"></script>
-         <!-- Active js -->
          <script src="js/active.js"></script>
-         <!-- Mustache js -->
          <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"></script>
          <script src="js/script.js"></script>
          <script>
